@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: add-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: add
+  template:
+    metadata:
+      labels:
+        app: add
+    spec:
+      containers:
+      - name: add
+        image: yourdockerhub/calc-add:v1
+        ports:
+        - containerPort: 5000

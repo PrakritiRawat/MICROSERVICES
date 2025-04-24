@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sub-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sub
+  template:
+    metadata:
+      labels:
+        app: sub
+    spec:
+      containers:
+      - name: sub
+        image: yourdockerhub/calc-sub:v1
+        ports:
+        - containerPort: 5000
